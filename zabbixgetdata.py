@@ -15,7 +15,9 @@ test: object = zapi.do_request(method='trend.get', params={
         "itemids": [
                 "23316"
         ],
-        "limit": "1"
+        "limit": "1",
+        "time_from": variablegen.unix_yesterday,
+        "time_till": variablegen.unix_today,
 })
 
 
