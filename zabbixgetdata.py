@@ -1,19 +1,12 @@
 from pyzabbix.api import ZabbixAPI
 
-#variables
-user_name = 'Admin'
-password_zab = '12345678'
-zab_url = 'http://192.168.2.226/zabbix'
+# variable imports
+import cred
+#import reportitems
 
-zapi = ZabbixAPI(url=zab_url, user=user_name, password=password_zab)
 
-zapi.do_request('trend.get',
-{
-    "output": [
-            "itemid",
-            "clock",
-            "num",
-            "value_min",
-            "value_avg",
-            "value_max",
-})
+zapi = ZabbixAPI(url=cred.zab_url, user=cred.user_name, password=cred.password_zab)
+
+test = zapi.do_request(method='trend.get', params={"output": ["itemid", "value_max"], "itemids": ["23316"], "limit": "1"})
+
+print(test)
