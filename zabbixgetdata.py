@@ -23,3 +23,4 @@ test = zapi.do_request(method='trend.get', params={
 print(variablegen.hrvalue)
 
 print(test)
+
