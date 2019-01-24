@@ -1,10 +1,6 @@
 import time
 import datetime
-import json
-
-from hurry import filesize
-
-#import zabbixgetdata
+import conversions
 
 today = datetime.date.today()
 unix_today = time.mktime(datetime.datetime.strptime(str(today), "%Y-%m-%d").timetuple())
@@ -15,6 +11,5 @@ unix_yesterday = time.mktime(datetime.datetime.strptime(str(yesterday), "%Y-%m-%
 # print (yesterday)
 # print(int(unix_yesterday))
 
-#gotoutput = json.loads(zabbixgetdata.test)
+hrvalue = conversions.hrconvvalue
 
-#hrvalue = filesize.iec(gotoutput['value_max'])

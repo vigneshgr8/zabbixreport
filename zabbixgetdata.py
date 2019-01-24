@@ -20,6 +20,6 @@ test = zapi.do_request(method='trend.get', params={
         "time_till": variablein.unix_today
 })
 
-#print(variablegen.hrvalue)
+print(variablegen.hrvalue)
 
 print(test)
