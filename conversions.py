@@ -1,6 +1,6 @@
-import json
-from hurry import filesize
-import zabbixgetdata
+import humanize
 
-gotoutput = json.loads(zabbixgetdata.test)
-hrconvvalue = filesize.iec(gotoutput['value_max'])
+
+def jsonconvert(jsoninput):
+    max_value = jsoninput['result'][0]['value_max']
+    return humanize.naturalsize(max_value, binary=True)

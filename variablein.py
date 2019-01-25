@@ -11,5 +11,4 @@ unix_yesterday = time.mktime(datetime.datetime.strptime(str(yesterday), "%Y-%m-%
 # print (yesterday)
 # print(int(unix_yesterday))
 
-hrvalue = conversions.hrconvvalue
 
