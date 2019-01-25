@@ -6,21 +6,19 @@ import variablein
 import humanize    # For making data human-readable
 
 
-def memoryconv(jsoninput):
+def memoryconv(jsoninput):  # Function to convert memory size to human readable
     max_value = jsoninput['result'][0]['value_max']
     return humanize.naturalsize(max_value, binary=True)
 
 
-def dataspeedconv(jsoninput):
+def dataspeedconv(jsoninput):  # Function to convert data transfer speed to human readable
     max_value = jsoninput['result'][0]['value_max']
     return humanize.naturalsize(max_value, binary=True) + "/s"
 
 
-def zapi_request(item):
-
+def zapi_request(item):  # Function to obtain data from Zabbix API through JSON request
     request = cred.zapi.do_request(method='trend.get', params={
         'output': [
-
             'itemid',
             'value_max'
         ],
