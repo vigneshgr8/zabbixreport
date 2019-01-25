@@ -13,3 +13,4 @@ yesterday = datetime.date.today() - datetime.timedelta(days=1)
 unix_yesterday = time.mktime(datetime.datetime.strptime(str(yesterday), "%Y-%m-%d").timetuple())
 
 application = "['CPU']"
+host = "['Zabbix Server']"
