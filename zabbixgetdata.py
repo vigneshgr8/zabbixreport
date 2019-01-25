@@ -1,3 +1,4 @@
+# Import the ZabbixAPI module
 from pyzabbix.api import ZabbixAPI
 
 # variable imports
@@ -9,7 +10,7 @@ zapi = ZabbixAPI(url=cred.zab_url, user=cred.user_name, password=cred.password_z
 
 test: str = zapi.do_request(method='trend.get', params={
     'output': [
-        ''
+
         'itemid',
         'value_max'
     ],
