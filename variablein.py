@@ -1,6 +1,6 @@
 import time
 import datetime
-import conversions
+import allfunctions
 
 today = datetime.date.today()
 unix_today = time.mktime(datetime.datetime.strptime(str(today), "%Y-%m-%d").timetuple())

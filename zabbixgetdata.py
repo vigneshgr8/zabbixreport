@@ -3,12 +3,13 @@ from pyzabbix.api import ZabbixAPI
 # variable imports
 import cred
 import variablein
-import conversions
+import allfunctions
 
 zapi = ZabbixAPI(url=cred.zab_url, user=cred.user_name, password=cred.password_zab)
 
 test: str = zapi.do_request(method='trend.get', params={
     'output': [
+        ''
         'itemid',
         'value_max'
     ],
@@ -20,7 +21,7 @@ test: str = zapi.do_request(method='trend.get', params={
     'time_till': variablein.unix_today
 })
 
-hrvalue = conversions.jsonconvert(test)
+hrvalue = allfunctions.dataspeedconv(test)
 print(hrvalue)
 
 print(test)
