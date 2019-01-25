@@ -16,10 +16,20 @@ def dataspeedconv(jsoninput):  # Function to convert data transfer speed to huma
     return humanize.naturalsize(max_value, binary=True) + "/s"
 
 
-def zapi_request(item):  # Function to obtain data from Zabbix API through JSON request
+def zapi_req_item(host):
+    request = cred.zapi.do_request(method='item.get', params={
+        'output': [
+            'itemid'
+        ],
+        'host': host,
+        'application': variablein.application
+    })
+    return request
+
+
+def zapi_req_max(item):  # Function to obtain data from Zabbix API through JSON request
     request = cred.zapi.do_request(method='trend.get', params={
         'output': [
-            'itemid',
             'value_max'
         ],
         'itemids': [
