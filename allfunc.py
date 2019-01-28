@@ -4,6 +4,7 @@
 import cred
 import variablein
 import humanize    # For making data human-readable
+import gspread
 
 
 def memoryconv(jsoninput):  # Function to convert memory size to human readable
