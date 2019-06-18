@@ -4,11 +4,10 @@
 import cred
 import variablein
 import humanize    # For making data human-readable
-import gspread
 
 
 def memoryconv(jsoninput):  # Function to convert memory size to human readable
-    max_value = jsoninput['result'][0]['value_max']
+    max_value = jsoninput['result'][0]['value_min']
     return humanize.naturalsize(max_value, binary=True)
 
 
@@ -31,7 +30,7 @@ def zapi_req_item(host):
 def zapi_req_max(item):  # Function to obtain data from Zabbix API through JSON request
     request = cred.zapi.do_request(method='trend.get', params={
         'output': [
-            'value_max'
+            'value_min'
         ],
         'itemids': [
             item
@@ -41,3 +40,7 @@ def zapi_req_max(item):  # Function to obtain data from Zabbix API through JSON 
         'time_till': variablein.unix_today
     })
     return request
+
+
+
+
